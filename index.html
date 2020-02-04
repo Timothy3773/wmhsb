@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="Access-Control-Allow-Origin" content="*">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="styles/main.css" />
+</head>
+<body class="bg-dark">
+    <h1 class="main-title c-white center stitle3 hero-blue"><span class="isrw">ᗕ</span> timcord.net <span class="isrw">ᗒ</span></h1>
+    <br>
+    <p class="c-white" id="words"></p>
+</body>
+<script>
+    let list = ["segway", "segment"]
+    $.getJSON("https://api.datamuse.com/words?sp=*seg*&md=d", (data, ts, jq) => {
+        $("#words").html(data.filter(c => (c.defs && c.word)).map(cf => cf.word + " > " + cf.defs).join("<br><hr>"))
+    })
+</script>
+</html>
